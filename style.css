@@ -1,0 +1,124 @@
+/* Reset sederhana */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  /* Background elegan: gradien gelap yang halus */
+  background: radial-gradient(circle at 30% 20%, #2b3a55 0%, #1a2333 45%, #0f141e 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Full screen 100vh + center horizontal & vertikal */
+.container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+/* Tombol besar, modern */
+#btnMulai {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(1.4rem, 4vw + 1rem, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #0f141e;
+  background: linear-gradient(135deg, #ffffff 0%, #e8eef7 60%, #c9d8ef 100%);
+  padding: 26px 72px;
+  min-width: min(78vw, 340px);
+  min-height: 96px;
+  border-radius: 999px;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.35),
+    0 2px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -4px 12px rgba(15, 20, 30, 0.15) inset;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, filter 0.18s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Hover effect */
+#btnMulai:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.03);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.42),
+    0 0 0 6px rgba(255, 255, 255, 0.12),
+    0 2px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+/* Fokus keyboard (aksesibilitas) */
+#btnMulai:focus-visible {
+  outline: 4px solid #7fb3ff;
+  outline-offset: 4px;
+}
+
+/* Active / pressed effect */
+#btnMulai:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.25) inset;
+  filter: brightness(0.96);
+}
+
+/* Status sedang memutar */
+#btnMulai.is-playing {
+  background: linear-gradient(135deg, #7fb3ff 0%, #4a86e8 100%);
+  color: #ffffff;
+}
+
+/* Pesan error / status kecil */
+.pesan {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ffd9d9;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 10px 16px;
+  border-radius: 12px;
+  max-width: min(90vw, 420px);
+  text-align: center;
+}
+
+.pesan[hidden] {
+  display: none;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 480px) {
+  #btnMulai {
+    padding: 22px 48px;
+    min-width: min(84vw, 300px);
+    min-height: 88px;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Kurangi animasi jika pengguna memintanya */
+@media (prefers-reduced-motion: reduce) {
+  #btnMulai {
+    transition: none;
+  }
+  #btnMulai:hover,
+  #btnMulai:active {
+    transform: none;
+  }
+}

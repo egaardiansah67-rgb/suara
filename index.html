@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Halaman sederhana dengan tombol MULAI untuk memutar audio." />
+  <title>MULAI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <button id="btnMulai" type="button" aria-label="Mulai putar audio">MULAI</button>
+    <p id="pesan" class="pesan" role="status" aria-live="polite" hidden></p>
+    <audio id="audioPemutar" preload="auto">
+      <source src="audio/suara.mp3" type="audio/mpeg" />
+      Browser Anda tidak mendukung elemen audio.
+    </audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
